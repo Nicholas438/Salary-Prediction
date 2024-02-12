@@ -39,3 +39,120 @@ Model ini dibuat untuk skenario sebagai berikut:<br>
 2. Melakukan preprocessing data data agar bisa digunakan dalam membangun model.
 3. Melakukan hyperparameter tuning menggunakan grid search dan membangun model regresi yang dapat memprediksi bilangan kontinu. ALgoritma yang dipakai dalam proyek ini adalah K-Nearest Neighbour, Random Forest, dan AdaBoost.
 
+## Data Understanding 
+
+Dataset yang digunakan dalam proyek ini merupakan data salary prediction data dari Kaggle. https://www.kaggle.com/datasets/mrsimple07/salary-prediction-data.
+
+Berikut informasi pada dataset :
+
++ Dataset memiliki format CSV (Comma-Seperated Values).
++ Dataset memiliki 1000 sample dengan 7 fitur.
++ Dataset memiliki 1 fitur bertipe float64, 2 fitur bertipe int64 dan 4 fitur bertipe object.
++ Tidak ada missing value dalam dataset.
+
+### Variable - variable pada dataset
+
++ Education: Tingkat pendidikan pegawai.
++ Experience: Jumlah tahun pengalaman bekerja dari pegawai
++ Location: Lokasi kantor dan tempat data diambil.
++ Job_title: Posisi dari karyawan dalam perusahaan
++ Age: Usia karyawan
++ Gender: Jenis Kelamin pegawai.
++ Salary: Gaji pegawai yang akan dijadikan target pada model ini
+
+### Visualisasi Data Univariate Analysis
+
+#### Visualisasi Data Kategorikal
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/7a11a22a-4271-4c13-8137-fdc343f95e17)
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/076506fd-7fd1-4c56-a756-2f344bbe2f0f)
+
+Dapat terlihat bahwa Data Kategorikal memiliki sebaran data yang cukup merata. Setiap atribut pada kategori memiliki jumlah yang relatif seimbang tanpa memiliki perbedaan yang signifikan.
+
+#### Visualisasi Data Numerik
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/f5f0bd89-2b5c-4c95-a376-9f1482a05925)
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/4c3d0d8b-55a3-415c-9b43-a7ffecb88751)<br>
+Data Numerik juga memiliki kasus yang serupa dengan data kategorikal
+
+### Outlier Identification
+Akan dilakukan visualisasi dengan boxplot untuk mengidentifikasi outlier pada data pada data numerik sebagai berikut <br>
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/2f1d3d20-afd9-4d02-9d9c-e0236ed2caef)
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a270db52-b5f7-45de-a7cc-dd07f00d5ab4)
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d9d9320a-449b-4c4d-bd64-2e4a2a87d6f0)<br>
+Boxplot menunjukkan data dan ambang batas data untuk memasuki kategori data non-outlier. Segitiga yang ada di tengah boxplot berfungsi sebagai penanda mean dari data dan bulatan di luar kotak boxplot menunjukkan outlier yang ada pada data.<br>
+Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikeluarkan untuk memberikan data yang lebih mudah dicerna oleh sistem model machine learning
+
+
+### Multivariate Analysis
+
+#### Visualisasi data salary terhadap data kategorikal
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a3c82088-c5ad-4432-a5be-93e4db78f593)
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/53cc0148-e0f1-4cb1-88c2-923e956ed3e8)
+
+#### Visualisasi Salary terhadap data numerik
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/cebcab9d-e7df-423f-887c-627f18b0c913)
+
+#### Korelasi Salary terhadap Data Numerik
+![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/1ed5ba32-964d-4659-8a83-76f8cad7d2e3)
+
+
+
+## Data preparation
+
++ One Hot Encoding
+
+  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. Fitur yang akan diubah menjadi numerik pada proyek ini adalah Area Type, City, Furnishing Status, dan Tenant Preferred.
+  
++ Train Test Split
+
+  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 3696 dibagi menjadi 3511 untuk data latih dan 185 untuk data uji.
+  
++ Normalization
+
+  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
+
+## Modeling
+
++ Algoritma
+  Penelitian ini melakukan pemodelan dengan 3 algoritma, yaitu K-Nearest Neighbour, Random Forest, dan
+  + K-Nearest Neighbour
+    K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan [sklearn.neighbors.KNeighborsRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    + `n_neighbors` = Jumlah k tetangga tedekat.
+
+  + Random Forest
+    Algoritma random forest adalah teknik dalam machine learning dengan metode ensemble. Teknik ini beroperasi dengan membangun banyak decision tree pada waktu pelatihan. Proyek ini menggunakan [sklearn.ensemble.RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
+    + `max_depth` = Kedalaman maksimum setiap tree.
+    + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+
+  + Adaboost
+    AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble.  Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (decision trees) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 split. Pohon-pohon ini juga disebut Decision Stumps. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Proyek ini menggunakan [sklearn.ensemble.AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
+    + `learning_rate` = Learning rate memperkuat kontribusi setiap regressor.
+    + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+
++ Hyperparameter Tuning (Grid Search)
+  Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
+  | model    | best_params                                                     |
+  |----------|-----------------------------------------------------------------|
+  | knn      | {'n_neighbors': 7}                                              |
+  | boosting | {'learning_rate': 0.1, 'n_estimators': 100, 'random_state': 11} |
+  | rf       | {'max_depth': 8, 'n_estimators': 25, 'random_stste': 11}        |
+
+## Evaluation
+
+Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
+<div><img src="https://user-images.githubusercontent.com/107544829/188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d.png" width="300"/></div>
+
+Berikut hasil evaluasi pada proyek ini :
+
++ Akurasi
+  | model    | accuracy |
+  |----------|----------|
+  | knn      | 0.726775 |
+  | boosting | 0.898556 |
+  | rf       | 0.932057 |
+
++ Mean Squared Error (MSE)
+  <div><img src="https://user-images.githubusercontent.com/107544829/188413846-7d5454b5-7f83-488e-836f-4f3593eb3d5d.png" width="300"/></div>
+
+Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini.
