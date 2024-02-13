@@ -17,9 +17,9 @@ Penelitian ini dilakukan untuk menciptakan suatu model machine learning yang ber
 # Business Understanding
 
 Model ini dibuat untuk skenario sebagai berikut:<br>
-1. Pegawai yang ingin apply ke perusahaan tertentu<br>
+1. Pegawai yang ingin apply ke perusahaan tertentu untuk mendapatkan gaji yang lebih tinggi daripada posisi lamanya<br>
 2. Pegawai yang ingin meminta promosi atau kenaikan gaji.<br>
-3. Perusahaan yang ingin mempekerjakan seorang pegawai tertentu.<br>
+3. Perusahaan yang ingin mempekerjakan seorang pegawai tertentu dan ingin menghemat biaya operasional atau ingin mendapatkan karyawan yang kompeten.<br>
 
 ### Problem Statement
 
@@ -88,18 +88,28 @@ Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikel
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a3c82088-c5ad-4432-a5be-93e4db78f593)
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/53cc0148-e0f1-4cb1-88c2-923e956ed3e8)
 
+Dapat terlihat bahwa lokasi, tingkat pendidikan dan posisi pekerjaan menentukan besarnya gaji yang didapatkan dengan posisi atau pendidikan yang lebih tinggi dan lokasi yang lebih ramai (urban) cenderung emmberikan penghasilan yang lebih tinggi juga kepada pegawainya.
+<br> Jenis Kelaminn juga sedikit mempengaruhi dengan pegawai laki-laki yang berpenghasilan sedikit lebih banyak daripada perempuan.<br>
+Beberapa insight lain yang dapat ditemukan:
+ + Tingkat pendidikan memiliki pengaru yang paling besar pada salary yang didapatkan.
+ + Director memiliki rata-rata salary tertinggi dilanjutkan dengan manager, engineer dan terakhir analyst.
+ + Gender memiliki pengaruh paling sedikit terhadap salary yang didapatkan dengan perbedaan yang cukup negligible
 
 
 #### Visualisasi Salary terhadap data numerik
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/cebcab9d-e7df-423f-887c-627f18b0c913)
 
+
+
 #### Korelasi Salary terhadap Data Numerik
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/1ed5ba32-964d-4659-8a83-76f8cad7d2e3)
 
 
+Data Numerik memiliki korelasi yang cukup rendah dengan Salary, terutama pada data usia, namun jika digabungkan dengan atribut data lain, maka bisa saja kedua data ini berpengaruh terutama jika digabungkan dengan data posisi pekerjaan dan tingkat pendidikan.
 
 ## Data preparation
 
+Data diubah agar mudah diproses oleh model machine learning dengan teknik-teknik sebagai berikut:
 + One Hot Encoding
 
   One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. 
@@ -163,4 +173,4 @@ Berikut hasil evaluasi pada proyek ini :
 + Mean Squared Error (MSE)<br>
   ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d849db19-505c-44c3-8f7d-3d51ed627dac)
 
-Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Linear Regression memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil pada testing dari model lainnya pada proyek ini.
+Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Linear Regression dan Random Forest memiliki akurasi lebih tinggi dan Mean Squared Error lebih kecil pada testing dari model lainnya pada proyek ini, dilanjutkan dengan KNN dan terakhir Adaboost dengan MSE terbesar. Sehingga dapat dipilih Linear Regression ataupun Random Forest untuk membantu perusahaan atau pegawai untuk memprediksi gaji yang pantas berdasarkan skillset atau atribut yang mereka miliki.
