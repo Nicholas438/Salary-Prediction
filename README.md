@@ -100,32 +100,36 @@ Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikel
 
 + One Hot Encoding
 
-  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. Fitur yang akan diubah menjadi numerik pada proyek ini adalah Area Type, City, Furnishing Status, dan Tenant Preferred.
+  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. 
   
 + Train Test Split
 
-  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 3696 dibagi menjadi 3511 untuk data latih dan 185 untuk data uji.
+  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 1000 dibagi menjadi 899 untuk data latih dan 100 untuk data uji.
   
 + Normalization
 
-  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
+  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
 
 ## Modeling
 
 + Algoritma
-  Penelitian ini melakukan pemodelan dengan 3 algoritma, yaitu K-Nearest Neighbour, Random Forest, dan
+  Penelitian ini melakukan pemodelan dengan 4 algoritma, yaitu Linear Regression, K-Nearest Neighbour, Random Forest, dan Adaboost
+
+  + Linear Regression
+     Linear Regression adalah teknik regresi yang menggunakan teknik regresi linear pada matematika. Regresi ini memodelkan grafik yang terdiri atas berbagai titik menjadi satu garis lurus dengan melakukan training data ke dalam model tersebut. Teknik ini tidak menggunakan parameter apapun.
+    
   + K-Nearest Neighbour
-    K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan [sklearn.neighbors.KNeighborsRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Parameter yang digunakan pada teknik ini adalah :
     + `n_neighbors` = Jumlah k tetangga tedekat.
 
   + Random Forest
-    Algoritma random forest adalah teknik dalam machine learning dengan metode ensemble. Teknik ini beroperasi dengan membangun banyak decision tree pada waktu pelatihan. Proyek ini menggunakan [sklearn.ensemble.RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    Algoritma random forest adalah teknik dalam machine learning dengan metode ensemble. Teknik Random Forest merupakan kumpulan decision tree untuk melakukan prediksi. Parameter yang digunakan pada teknik ini adalah :
     + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
     + `max_depth` = Kedalaman maksimum setiap tree.
     + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
 
   + Adaboost
-    AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble.  Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (decision trees) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 split. Pohon-pohon ini juga disebut Decision Stumps. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Proyek ini menggunakan [sklearn.ensemble.AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble.  Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Parameter yang digunakan pada teknik ini adalah :
     + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
     + `learning_rate` = Learning rate memperkuat kontribusi setiap regressor.
     + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
@@ -134,9 +138,10 @@ Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikel
   Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
   | model    | best_params                                                     |
   |----------|-----------------------------------------------------------------|
-  | knn      | {'n_neighbors': 7}                                              |
-  | boosting | {'learning_rate': 0.1, 'n_estimators': 100, 'random_state': 11} |
-  | rf       | {'max_depth': 8, 'n_estimators': 25, 'random_stste': 11}        |
+  | Linear   | {}                                                              |
+  | knn      | {'n_neighbors': 4}                                              |
+  | boosting | {'learning_rate': 0.1, 'n_estimators': 100, 'random_state': 88} |
+  | rf       | {'max_depth': 8, 'n_estimators': 100, 'random_stste': 88}        |
 
 ## Evaluation
 
@@ -148,11 +153,12 @@ Berikut hasil evaluasi pada proyek ini :
 + Akurasi
   | model    | accuracy |
   |----------|----------|
-  | knn      | 0.726775 |
-  | boosting | 0.898556 |
-  | rf       | 0.932057 |
+  | linear   | 0.89110  |         
+  | knn      | 0.84907  |
+  | boosting | 0.83218  |
+  | rf       | 0.87927  |
 
 + Mean Squared Error (MSE)
-  <div><img src="https://user-images.githubusercontent.com/107544829/188413846-7d5454b5-7f83-488e-836f-4f3593eb3d5d.png" width="300"/></div>
+  ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d849db19-505c-44c3-8f7d-3d51ed627dac)
 
-Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini.
+Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Linear Regression memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil pada testing dari model lainnya pada proyek ini.
