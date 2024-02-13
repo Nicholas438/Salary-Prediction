@@ -63,21 +63,21 @@ Berikut informasi pada dataset :
 ### Visualisasi Data Univariate Analysis
 
 #### Visualisasi Data Kategorikal
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/7a11a22a-4271-4c13-8137-fdc343f95e17)
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/076506fd-7fd1-4c56-a756-2f344bbe2f0f)
+<div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/7a11a22a-4271-4c13-8137-fdc343f95e17'></div>
+<div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/076506fd-7fd1-4c56-a756-2f344bbe2f0f'/></div>
 
 Dapat terlihat bahwa Data Kategorikal memiliki sebaran data yang cukup merata. Setiap atribut pada kategori memiliki jumlah yang relatif seimbang tanpa memiliki perbedaan yang signifikan dan dapat diberi ke model machine learning secara langsung.
 
 #### Visualisasi Data Numerik
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/f5f0bd89-2b5c-4c95-a376-9f1482a05925)
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/4c3d0d8b-55a3-415c-9b43-a7ffecb88751)<br>
+<div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/f5f0bd89-2b5c-4c95-a376-9f1482a05925'/></div>
+<div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/4c3d0d8b-55a3-415c-9b43-a7ffecb88751'/></div><br>
 Data Numerik juga memiliki persebaran data yang cukup merata dan target data yang ingin diprediksi yaitu salary memiliki bentuk data yang berbentuk menyerupai bell curve sehingga dapat diberikan ke model machine learning.
 
 ### Outlier Identification
 Akan dilakukan visualisasi dengan boxplot untuk mengidentifikasi outlier pada data pada data numerik sebagai berikut <br>
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/2f1d3d20-afd9-4d02-9d9c-e0236ed2caef)
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a270db52-b5f7-45de-a7cc-dd07f00d5ab4)
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d9d9320a-449b-4c4d-bd64-2e4a2a87d6f0)<br>
+<div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/2f1d3d20-afd9-4d02-9d9c-e0236ed2caef'/></div>
+<div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a270db52-b5f7-45de-a7cc-dd07f00d5ab4'/></div>
+<div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d9d9320a-449b-4c4d-bd64-2e4a2a87d6f0'/></div><br>
 Boxplot menunjukkan data dan ambang batas data untuk memasuki kategori data non-outlier. Segitiga yang ada di tengah boxplot berfungsi sebagai penanda mean dari data dan bulatan di luar kotak boxplot menunjukkan outlier yang ada pada data.<br>
 Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikeluarkan untuk memberikan data yang lebih mudah dicerna oleh sistem model machine learning
 
@@ -85,11 +85,11 @@ Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikel
 ### Multivariate Analysis
 
 #### Visualisasi data salary terhadap data kategorikal
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a3c82088-c5ad-4432-a5be-93e4db78f593)
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/53cc0148-e0f1-4cb1-88c2-923e956ed3e8)
+<div><img src ='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a3c82088-c5ad-4432-a5be-93e4db78f593'/></div>
+<div><img src ='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/53cc0148-e0f1-4cb1-88c2-923e956ed3e8'/></div>
 
 Dapat terlihat bahwa lokasi, tingkat pendidikan dan posisi pekerjaan menentukan besarnya gaji yang didapatkan dengan posisi atau pendidikan yang lebih tinggi dan lokasi yang lebih ramai (urban) cenderung emmberikan penghasilan yang lebih tinggi juga kepada pegawainya.
-<br> Jenis Kelaminn juga sedikit mempengaruhi dengan pegawai laki-laki yang berpenghasilan sedikit lebih banyak daripada perempuan.<br>
+<br> Jenis Kelamin juga sedikit mempengaruhi dengan pegawai laki-laki yang berpenghasilan sedikit lebih banyak daripada perempuan.<br>
 Beberapa insight lain yang dapat ditemukan:
  + Tingkat pendidikan memiliki pengaru yang paling besar pada salary yang didapatkan.
  + Director memiliki rata-rata salary tertinggi dilanjutkan dengan manager, engineer dan terakhir analyst.
@@ -97,12 +97,12 @@ Beberapa insight lain yang dapat ditemukan:
 
 
 #### Visualisasi Salary terhadap data numerik
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/cebcab9d-e7df-423f-887c-627f18b0c913)
+<div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/cebcab9d-e7df-423f-887c-627f18b0c913'/></div>
 
 
 
 #### Korelasi Salary terhadap Data Numerik
-![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/1ed5ba32-964d-4659-8a83-76f8cad7d2e3)
+<div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/1ed5ba32-964d-4659-8a83-76f8cad7d2e3'/></div>
 
 
 Data Numerik memiliki korelasi yang cukup rendah dengan Salary, terutama pada data usia, namun jika digabungkan dengan atribut data lain, maka bisa saja kedua data ini berpengaruh terutama jika digabungkan dengan data posisi pekerjaan dan tingkat pendidikan.
@@ -171,6 +171,6 @@ Berikut hasil evaluasi pada proyek ini :
   | rf       | 0.87927  |
 
 + Mean Squared Error (MSE)<br>
-  ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d849db19-505c-44c3-8f7d-3d51ed627dac)
+<div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d849db19-505c-44c3-8f7d-3d51ed627dac'/></div>
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Linear Regression dan Random Forest memiliki akurasi lebih tinggi dan Mean Squared Error lebih kecil pada testing dari model lainnya pada proyek ini, dilanjutkan dengan KNN dan terakhir Adaboost dengan MSE terbesar. Sehingga dapat dipilih Linear Regression ataupun Random Forest untuk membantu perusahaan atau pegawai untuk memprediksi gaji yang pantas berdasarkan skillset atau atribut yang mereka miliki.
