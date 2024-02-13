@@ -30,14 +30,14 @@ Model ini dibuat untuk skenario sebagai berikut:<br>
 ### Goals
 
 1. Mengetahui atribut yang paling berpengaruh pada gaji seorang pegawai.
-2. Melakukan persiapan data untuk dapat dilatih oleh model.
-3. Membuat model machine learning yang dapat memprediksi gaji seorang pegawai dengan akurasi yang tinggi.
+2. Melakukan prediksi gaji yang sesuai untuk seorang pegawai.
+3. Melakukan analisa dan pengolahan data gaji untuk mendapatkan insight dan memberikan data yang lebih mudah dicerna oleh machine learning.
 
 ### Solution Statement
 
 1. Menganalisis data dengan melakukan univariate analysis, multivariate analysis dan visualisasi.
 2. Melakukan preprocessing data data agar bisa digunakan dalam membangun model.
-3. Melakukan hyperparameter tuning menggunakan grid search dan membangun model regresi yang dapat memprediksi bilangan kontinu. ALgoritma yang dipakai dalam proyek ini adalah K-Nearest Neighbour, Random Forest, dan AdaBoost.
+3. Melakukan hyperparameter tuning menggunakan grid search dan membangun model regresi yang dapat memprediksi bilangan kontinu. ALgoritma yang dipakai dalam proyek ini adalah Linear Regression, K-Nearest Neighbour, Random Forest, dan AdaBoost.
 
 ## Data Understanding 
 
@@ -66,12 +66,12 @@ Berikut informasi pada dataset :
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/7a11a22a-4271-4c13-8137-fdc343f95e17)
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/076506fd-7fd1-4c56-a756-2f344bbe2f0f)
 
-Dapat terlihat bahwa Data Kategorikal memiliki sebaran data yang cukup merata. Setiap atribut pada kategori memiliki jumlah yang relatif seimbang tanpa memiliki perbedaan yang signifikan.
+Dapat terlihat bahwa Data Kategorikal memiliki sebaran data yang cukup merata. Setiap atribut pada kategori memiliki jumlah yang relatif seimbang tanpa memiliki perbedaan yang signifikan dan dapat diberi ke model machine learning secara langsung.
 
 #### Visualisasi Data Numerik
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/f5f0bd89-2b5c-4c95-a376-9f1482a05925)
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/4c3d0d8b-55a3-415c-9b43-a7ffecb88751)<br>
-Data Numerik juga memiliki kasus yang serupa dengan data kategorikal
+Data Numerik juga memiliki persebaran data yang cukup merata dan target data yang ingin diprediksi yaitu salary memiliki bentuk data yang berbentuk menyerupai bell curve sehingga dapat diberikan ke model machine learning.
 
 ### Outlier Identification
 Akan dilakukan visualisasi dengan boxplot untuk mengidentifikasi outlier pada data pada data numerik sebagai berikut <br>
@@ -87,6 +87,8 @@ Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikel
 #### Visualisasi data salary terhadap data kategorikal
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a3c82088-c5ad-4432-a5be-93e4db78f593)
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/53cc0148-e0f1-4cb1-88c2-923e956ed3e8)
+
+
 
 #### Visualisasi Salary terhadap data numerik
 ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/cebcab9d-e7df-423f-887c-627f18b0c913)
