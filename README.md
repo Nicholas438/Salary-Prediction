@@ -10,9 +10,9 @@ Proyek ini dilakukan sebagai penyelesaian tugas proyek pertama Dicoding - Applie
 
 Penghidupan yang layak merupakan salah satu syarat untuk hidup yang makmur dengan tingginya persentase masyarakat Indonesia yang menganggap bahwa status finansial yang mumpuni merupakan hal yang kurang dalam hidup mereka. Namun, banyak orang yang merasa kesulitan untuk melakukan negosiasi gaji yang cocok dengan rekruiter yang sesuai dengan skillset, experience dan kontribusi mereka ke perusahaan.
 <br><br>
-Ukuran gaji seseorang biasanya bergantung pada beberapa faktor antara lain skillset, posisi dan experience yang dimiliki. Namun, sulit untuk ditentukan secara pasti gaji yang sesuai dengan kriteria tersebut secara manual. Oleh karena itu, diperlukanlah suatu sistem terstruktur untuk memprediksi kompensasi yang sesuai untuk seorang pekerja dengan atribut tertentu.
+Ukuran gaji seseorang biasanya bergantung pada beberapa faktor antara lain skillset, posisi dan experience yang dimiliki. Namun, sulit untuk ditentukan secara pasti gaji yang sesuai dengan kriteria tersebut secara manual. Hal ini berdampak pada tidak sesuainya gaji yang diterima oleh pekerja yang dapat merugikan perusahaan dan pegawai baik karena kurangnya motivasi maupun dana yang terlalu banyak dikeluarkan untuk biaya sumber daya manusia. Oleh karena itu, diperlukanlah suatu sistem terstruktur untuk memprediksi kompensasi yang sesuai untuk seorang pekerja dengan atribut tertentu.
 <br><br>
-Penelitian ini dilakukan untuk menciptakan suatu model machine learning yang bertujuan untuk memprediksi gaji pegawai dengan data yang ada. Diharapkan model ini dapat memprediksi dengan sesuai dan memberikan acuan bagi perusahaan maupun pekerja untuk melakukan negosiasi gaji.
+Penelitian ini dilakukan untuk menciptakan suatu model machine learning yang bertujuan untuk memprediksi gaji pegawai dengan data yang ada. Diharapkan model ini dapat memprediksi dengan sesuai dan memberikan acuan bagi perusahaan maupun pekerja untuk melakukan negosiasi gaji untuk meningkatkan retensi pegawai dan melakukan hiring sumber daya manusia dengan lebih efisien.
 
 # Business Understanding
 
@@ -158,7 +158,7 @@ Berikut hasil evaluasi pada proyek ini :
   | boosting | 0.83218  |
   | rf       | 0.87927  |
 
-+ Mean Squared Error (MSE)
++ Mean Squared Error (MSE)<br>
   ![image](https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d849db19-505c-44c3-8f7d-3d51ed627dac)
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Linear Regression memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil pada testing dari model lainnya pada proyek ini.
