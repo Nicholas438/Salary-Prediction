@@ -10,7 +10,7 @@ Proyek ini dilakukan sebagai penyelesaian tugas proyek pertama Dicoding - Applie
 
 Penghidupan yang layak merupakan salah satu syarat untuk hidup yang makmur dengan tingginya persentase masyarakat Indonesia yang menganggap bahwa status finansial yang mumpuni merupakan hal yang kurang dalam hidup mereka. Namun, banyak orang yang merasa kesulitan untuk melakukan negosiasi gaji yang cocok dengan rekruiter yang sesuai dengan skillset, experience dan kontribusi mereka ke perusahaan.
 <br><br>
-Ukuran gaji seseorang biasanya bergantung pada beberapa faktor antara lain skillset, posisi dan experience yang dimiliki. Namun, sulit untuk ditentukan secara pasti gaji yang sesuai dengan kriteria tersebut secara manual. Hal ini berdampak pada tidak sesuainya gaji yang diterima oleh pekerja yang dapat merugikan perusahaan dan pegawai baik karena kurangnya motivasi maupun dana yang terlalu banyak dikeluarkan untuk biaya sumber daya manusia. Oleh karena itu, diperlukanlah suatu sistem terstruktur untuk memprediksi kompensasi yang sesuai untuk seorang pekerja dengan atribut tertentu.
+Ukuran gaji seseorang biasanya bergantung pada beberapa faktor antara lain skillset, posisi dan experience yang dimiliki. Namun, sulit untuk ditentukan secara pasti gaji yang sesuai dengan kriteria tersebut secara manual. Hal ini berdampak pada tidak sesuainya gaji yang diterima oleh pekerja yang dapat merugikan perusahaan dan pegawai baik karena kurangnya motivasi dan retensi/loyalty pegawai untuk bekerja dalam perusahaan maupun dana yang terlalu banyak dikeluarkan untuk biaya sumber daya manusia. Oleh karena itu, diperlukanlah suatu sistem terstruktur untuk memprediksi kompensasi yang sesuai untuk seorang pekerja dengan atribut tertentu.
 <br><br>
 Penelitian ini dilakukan untuk menciptakan suatu model machine learning yang bertujuan untuk memprediksi gaji pegawai dengan data yang ada. Diharapkan model ini dapat memprediksi dengan sesuai dan memberikan acuan bagi perusahaan maupun pekerja untuk melakukan negosiasi gaji untuk meningkatkan retensi pegawai dan melakukan hiring sumber daya manusia dengan lebih efisien.
 
@@ -30,14 +30,15 @@ Model ini dibuat untuk skenario sebagai berikut:<br>
 ### Goals
 
 1. Mengetahui atribut yang paling berpengaruh pada gaji seorang pegawai.
-2. Melakukan prediksi gaji yang sesuai untuk seorang pegawai.
-3. Melakukan analisa dan pengolahan data gaji untuk mendapatkan insight dan memberikan data yang lebih mudah dicerna oleh machine learning.
+2. Melakukan analisa dan pengolahan data untuk mendapatkan insight dan memberikan data yang lebih mudah dicerna oleh machine learning.
+3. Menciptakan model machine learning dengan akurasi yang tinggi untuk memprediksi gaji yang sesuai untuk seorang pekerja denagn skillset tertentu.
 
 ### Solution Statement
 
 1. Menganalisis data dengan melakukan univariate analysis, multivariate analysis dan visualisasi.
 2. Melakukan preprocessing data data agar bisa digunakan dalam membangun model.
 3. Melakukan hyperparameter tuning menggunakan grid search dan membangun model regresi yang dapat memprediksi bilangan kontinu. ALgoritma yang dipakai dalam proyek ini adalah Linear Regression, K-Nearest Neighbour, Random Forest, dan AdaBoost.
+4. Melakukan evaluasi model machine learning dengan Mean Squared Error
 
 ## Data Understanding 
 
@@ -112,7 +113,7 @@ Data Numerik memiliki korelasi yang cukup rendah dengan Salary, terutama pada da
 Data diubah agar mudah diproses oleh model machine learning dengan teknik-teknik sebagai berikut:
 + One Hot Encoding
 
-  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. 
+  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. Hal ini memudahkan machine learning untuk memproses data karena berbentuk binary/integer dan tidak bersifat deskriptif yang sulit untuk diproses model machine learning
   
 + Train Test Split
 
@@ -120,7 +121,7 @@ Data diubah agar mudah diproses oleh model machine learning dengan teknik-teknik
   
 + Normalization
 
-  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
+  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler. Normalisasi dilakukan untuk menempatkan data numerik ke dalam lingkup range data yang mudah diproses oleh machine learning yang awalnya mungkin bisa bersifat puluhan sampai jutaan.
 
 ## Modeling
 
@@ -147,7 +148,7 @@ Data diubah agar mudah diproses oleh model machine learning dengan teknik-teknik
     + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
 
 + Hyperparameter Tuning (Grid Search)
-  Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
+  Hyperparameter tuning denagn Grid Search adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Grid search berfungsi untuk mencocokan setiap hyperparameter yang disediakan dan memilih parameter yang memberikan hasil terbaik. Berikut adalah hasil dari Grid Search pada proyek ini :
   | model    | best_params                                                     |
   |----------|-----------------------------------------------------------------|
   | Linear   | {}                                                              |
@@ -174,3 +175,9 @@ Berikut hasil evaluasi pada proyek ini :
 <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d849db19-505c-44c3-8f7d-3d51ed627dac'/></div>
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Linear Regression dan Random Forest memiliki akurasi lebih tinggi dan Mean Squared Error lebih kecil pada testing dari model lainnya pada proyek ini, dilanjutkan dengan KNN dan terakhir Adaboost dengan MSE terbesar. Sehingga dapat dipilih Linear Regression ataupun Random Forest untuk membantu perusahaan atau pegawai untuk memprediksi gaji yang pantas berdasarkan skillset atau atribut yang mereka miliki.
+
++ Prediksi
+  <br>
+  Berikut beberapa prediksi dari keempat model yang telah dibuat
+  <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/eb6d3881-8692-4cc5-ad36-bff7943f746f'></div>
+
