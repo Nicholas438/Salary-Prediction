@@ -75,20 +75,33 @@ Berikut informasi pada dataset :
 <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/076506fd-7fd1-4c56-a756-2f344bbe2f0f'/></div>
 Gambar 1. Visualisasi Data Kategorikal <br><br>
 
-Dapat terlihat bahwa Data Kategorikal memiliki sebaran data yang cukup merata. Setiap atribut pada kategori memiliki jumlah yang relatif seimbang tanpa memiliki perbedaan yang signifikan dan dapat diberi ke model machine learning secara langsung.
+Dapat terlihat bahwa Data Kategorikal memiliki sebaran data yang cukup merata. Setiap atribut pada kategori memiliki jumlah yang relatif seimbang tanpa memiliki perbedaan yang signifikan dan dapat diberi ke model machine learning secara langsung. Beberapa insight dalam data kategorikal:
+ + Mayoritas data diambil dari lulusan SMA, dilanjutkan oleh S1, S3 dan S2.
+ + Rural dan Suburban memiliki jumlah data yang lebih banyak daripada data yang diambil pada lokasi urban.
+ + Director dan Analyst memiliki jumlah data terbanyak diikuti oleh manager dan engineer.
+ + Data diambil lebih banyak dari laki-laki daripada perempuan.
 
 #### Visualisasi Data Numerik
 <div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/f5f0bd89-2b5c-4c95-a376-9f1482a05925'/></div>
 <div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/4c3d0d8b-55a3-415c-9b43-a7ffecb88751'/></div><br>
+Gambar 2. Visualisasi Data Numerik <br><br>
 Data Numerik juga memiliki persebaran data yang cukup merata dan target data yang ingin diprediksi yaitu salary memiliki bentuk data yang berbentuk menyerupai bell curve sehingga dapat diberikan ke model machine learning.
+Beberapa insight yang dapat diambil dalam visualisasi data numerik:<br>
+
+ + Data diambil dari rentang usia 20-60 dan experience 0-30.
+ + Data salary memiliki rentang antara 40000 - 180000 dengan data yang menyerupai sebuah bell curve.
+ + Data didominasi oleh pekerja yang berusia 20-25.
+
 
 ### Outlier Identification
 Akan dilakukan visualisasi dengan boxplot untuk mengidentifikasi outlier pada data pada data numerik sebagai berikut <br>
 <div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/2f1d3d20-afd9-4d02-9d9c-e0236ed2caef'/></div>
 <div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a270db52-b5f7-45de-a7cc-dd07f00d5ab4'/></div>
 <div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d9d9320a-449b-4c4d-bd64-2e4a2a87d6f0'/></div><br>
+Gambar 3. Visualisasi Data Outlier <br><br>
 Boxplot menunjukkan data dan ambang batas data untuk memasuki kategori data non-outlier. Segitiga yang ada di tengah boxplot berfungsi sebagai penanda mean dari data dan bulatan di luar kotak boxplot menunjukkan outlier yang ada pada data.<br>
-Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikeluarkan untuk memberikan data yang lebih mudah dicerna oleh sistem model machine learning
+Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikeluarkan untuk memberikan data yang lebih mudah dicerna oleh sistem model machine learning.<br>
+Outlier ini akan disingkirkan dengan metode IQR yang menyisakan 999 data pada dataset.<br>
 
 
 ### Multivariate Analysis
@@ -100,6 +113,7 @@ Pada data dapat dilihat bahwa salary memiliki tepat satu outlier yang akan dikel
 Dapat terlihat bahwa lokasi, tingkat pendidikan dan posisi pekerjaan menentukan besarnya gaji yang didapatkan dengan posisi atau pendidikan yang lebih tinggi dan lokasi yang lebih ramai (urban) cenderung emmberikan penghasilan yang lebih tinggi juga kepada pegawainya.
 <br> Jenis Kelamin juga sedikit mempengaruhi dengan pegawai laki-laki yang berpenghasilan sedikit lebih banyak daripada perempuan.<br>
 Beberapa insight lain yang dapat ditemukan:
+
  + Tingkat pendidikan memiliki pengaru yang paling besar pada salary yang didapatkan.
  + Director memiliki rata-rata salary tertinggi dilanjutkan dengan manager, engineer dan terakhir analyst.
  + Gender memiliki pengaruh paling sedikit terhadap salary yang didapatkan dengan perbedaan yang cukup negligible
@@ -114,6 +128,7 @@ Beberapa insight lain yang dapat ditemukan:
 <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/1ed5ba32-964d-4659-8a83-76f8cad7d2e3'/></div>
 
 
+Data numerik memiliki grafik yang tidak menunjukkan garis yang dapat terlihat secara langsung pada visualisasi sehingga tidak dapat disimpulkan secara langsung korelasi yang jelas. <br>
 Data Numerik memiliki korelasi yang cukup rendah dengan Salary, terutama pada data usia, namun jika digabungkan dengan atribut data lain, maka bisa saja kedua data ini berpengaruh terutama jika digabungkan dengan data posisi pekerjaan dan tingkat pendidikan.
 
 ## Data preparation
