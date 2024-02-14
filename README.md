@@ -1,5 +1,6 @@
 # Salary Prediction Model
 
+
 **Disusun oleh: Nicholas**
 
 Proyek ini dilakukan sebagai penyelesaian tugas proyek pertama Dicoding - Applied Machine Learning. Proyek ini bertujuan untuk menciptakan sebuah model untuk memprediksi gaji dari pegawai dengan atribut tertentu.
@@ -38,7 +39,7 @@ Model ini dibuat untuk skenario sebagai berikut:<br>
 
 1. Mengetahui atribut yang paling berpengaruh pada gaji seorang pegawai.
 2. Melakukan analisa dan pengolahan data untuk mendapatkan insight dan memberikan data yang lebih mudah dicerna oleh machine learning.
-3. Menciptakan model machine learning dengan akurasi yang tinggi untuk memprediksi gaji yang sesuai untuk seorang pekerja denagn skillset tertentu.
+3. Menciptakan model machine learning dengan akurasi minimal 87% untuk memprediksi gaji yang sesuai untuk seorang pekerja dengan skillset tertentu.
 
 ### Solution Statement
 
@@ -109,6 +110,7 @@ Outlier ini akan disingkirkan dengan metode IQR yang menyisakan 999 data pada da
 #### Visualisasi data salary terhadap data kategorikal
 <div><img src ='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/a3c82088-c5ad-4432-a5be-93e4db78f593'/></div>
 <div><img src ='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/53cc0148-e0f1-4cb1-88c2-923e956ed3e8'/></div>
+Gambar 4. Visualisasi Data Salary terhadap data kategorikal <br><br>
 
 Dapat terlihat bahwa lokasi, tingkat pendidikan dan posisi pekerjaan menentukan besarnya gaji yang didapatkan dengan posisi atau pendidikan yang lebih tinggi dan lokasi yang lebih ramai (urban) cenderung emmberikan penghasilan yang lebih tinggi juga kepada pegawainya.
 <br> Jenis Kelamin juga sedikit mempengaruhi dengan pegawai laki-laki yang berpenghasilan sedikit lebih banyak daripada perempuan.<br>
@@ -121,11 +123,13 @@ Beberapa insight lain yang dapat ditemukan:
 
 #### Visualisasi Salary terhadap data numerik
 <div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/cebcab9d-e7df-423f-887c-627f18b0c913'/></div>
+Gambar 5. Visualisasi Salary terhadap data numerik <br><br>
 
 
 
 #### Korelasi Salary terhadap Data Numerik
 <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/1ed5ba32-964d-4659-8a83-76f8cad7d2e3'/></div>
+Gambar 6. Visualisasi Korelasi data numerik <br><br>
 
 
 Data numerik memiliki grafik yang tidak menunjukkan garis yang dapat terlihat secara langsung pada visualisasi sehingga tidak dapat disimpulkan secara langsung korelasi yang jelas. <br>
@@ -155,23 +159,52 @@ Data diubah agar mudah diproses oleh model machine learning dengan teknik-teknik
   Penelitian ini melakukan pemodelan dengan 4 algoritma, yaitu Linear Regression, K-Nearest Neighbour, Random Forest, dan Adaboost
 
   + Linear Regression
-     Linear Regression adalah teknik regresi yang menggunakan teknik regresi linear pada matematika. Regresi ini memodelkan grafik yang terdiri atas berbagai titik menjadi satu garis lurus dengan melakukan training data ke dalam model tersebut. Teknik ini tidak menggunakan parameter apapun.
+     Linear Regression adalah teknik regresi yang menggunakan teknik regresi linear pada matematika. Regresi ini memodelkan grafik yang terdiri atas berbagai titik menjadi satu garis lurus dengan melakukan training data ke dalam model tersebut. Teknik ini tidak menggunakan parameter apapun.<br>
+    Kelebihan:
+    + Mudah diimplementasi
+    + Efisien
+    <br>
+    Kekurangan:
+    + Sensitif terhadap outlier
+    + Kompleksitas terbatas
     
   + K-Nearest Neighbour
     K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Parameter yang digunakan pada teknik ini adalah :
     + `n_neighbors` = Jumlah k tetangga tedekat.
+    Kelebihan:
+    + Mudah diimplementasi
+    + Adaptibilitas dengan data
+    + Tidak sensitif terhadap outlier
+    <br>
+    Kekurangan:
+    + Kompleks secara komputasional
+    + Memerlukan memori tinggi
 
   + Random Forest
     Algoritma random forest adalah teknik dalam machine learning dengan metode ensemble. Teknik Random Forest merupakan kumpulan decision tree untuk melakukan prediksi. Parameter yang digunakan pada teknik ini adalah :
     + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
     + `max_depth` = Kedalaman maksimum setiap tree.
     + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+    Kelebihan:
+    + Memiliki akurasi yang secara konsisten tinggi
+    + Memiliki handling noise
+    <br>
+    Kekurangan:
+    + Kompleks secara komputasional dan secara pemahaman
+    + Memiliki hyperparameter tuning yang memakan waktu
 
   + Adaboost
     AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble.  Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Parameter yang digunakan pada teknik ini adalah :
     + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
     + `learning_rate` = Learning rate memperkuat kontribusi setiap regressor.
     + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+    Kelebihan:
+    + Versatile
+    + Tidak sensitif terhadap data imbalance
+    <br>
+    Kekurangan:
+    + Sensitif terhadap noise
+    + Computationally intensive
 
 + Hyperparameter Tuning (Grid Search)
   Hyperparameter tuning denagn Grid Search adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Grid search berfungsi untuk mencocokan setiap hyperparameter yang disediakan dan memilih parameter yang memberikan hasil terbaik. Berikut adalah hasil dari Grid Search pada proyek ini :
@@ -180,12 +213,15 @@ Data diubah agar mudah diproses oleh model machine learning dengan teknik-teknik
   | Linear   | {}                                                              |
   | knn      | {'n_neighbors': 4}                                              |
   | boosting | {'learning_rate': 0.1, 'n_estimators': 100, 'random_state': 88} |
-  | rf       | {'max_depth': 8, 'n_estimators': 100, 'random_stste': 88}        |
+  | rf       | {'max_depth': 8, 'n_estimators': 100, 'random_stste': 88}       |
+  
+Tabel 1. Best parameters setiap model
 
 ## Evaluation
 
-Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
-<div><img src="https://user-images.githubusercontent.com/107544829/188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d.png" width="300"/></div>
+Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). MSE merupakan ukuran dari rata-rata kuadrat perbedaan antara nilai aktual dan nilai prediksi. Dalam konteks prediksi gaji, MSE mengukur seberapa dekat perkiraan gaji model dengan gaji sebenarnya dalam dataset. MSE yang rendah menunjukkan bahwa model memiliki presisi yang tinggi dalam memperkirakan gaji, yang dapat diinterpretasikan sebagai tingkat ketepatan prediksi. Berikut formulan MSE :
+$$MSE = {1 \over n} * \sum_{i=1}^n (y_i - ŷ_i)^2 $$
+
 
 Berikut hasil evaluasi pada proyek ini :
 
@@ -196,14 +232,17 @@ Berikut hasil evaluasi pada proyek ini :
   | knn      | 0.84907  |
   | boosting | 0.83218  |
   | rf       | 0.87927  |
+Tabel 2. Akurasi setiap model
 
 + Mean Squared Error (MSE)<br>
 <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/d849db19-505c-44c3-8f7d-3d51ed627dac'/></div>
+Gambar 7. Visualisasi MSE setiap algoritma <br><br>
 
-Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Linear Regression dan Random Forest memiliki akurasi lebih tinggi dan Mean Squared Error lebih kecil pada testing dari model lainnya pada proyek ini, dilanjutkan dengan KNN dan terakhir Adaboost dengan MSE terbesar. Sehingga dapat dipilih Linear Regression ataupun Random Forest untuk membantu perusahaan atau pegawai untuk memprediksi gaji yang pantas berdasarkan skillset atau atribut yang mereka miliki.
+Dari hasil evaluasi dan goals yang sudah ditentukan di awal yaitu 87%, dapat dilihat bahwa model dengan algoritma Linear Regression dan Random Forest memiliki akurasi lebih tinggi dan Mean Squared Error lebih kecil pada testing dari model lainnya pada proyek ini, dilanjutkan dengan KNN dan terakhir Adaboost dengan MSE terbesar. Sehingga dapat dipilih Linear Regression ataupun Random Forest untuk membantu perusahaan atau pegawai untuk memprediksi gaji yang pantas berdasarkan skillset atau atribut yang mereka miliki.
 
 + Prediksi
   <br>
   Berikut beberapa prediksi dari keempat model yang telah dibuat
   <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/eb6d3881-8692-4cc5-ad36-bff7943f746f'></div>
+  Gambar 8. Prediksi setiap algoritma terhadap beberapa data <br><br>
 
