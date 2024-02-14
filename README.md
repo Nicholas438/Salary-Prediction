@@ -134,13 +134,16 @@ Data Numerik memiliki korelasi yang cukup rendah dengan Salary, terutama pada da
 ## Data preparation
 
 Data diubah agar mudah diproses oleh model machine learning dengan teknik-teknik sebagai berikut:
++ Outlier Handling
+  Outlier yang diidentifikasikan pada visualisasi data dengan boxplot akan diubah pada data dengan metode IQR. IQR bekerja dengan cara mengidentifikasi setiap kuartil dan mendefinisikan IQR yaitu kuartil ketiga dikurangi dengan kuartil pertama.Lalu outlier yang bertempat pada Q1 - 1.5 IQR dan Q3 + 1.5 IQR akan dibuang dari data. Oulier handling akan memberikan model machine learning data yang tidak terpengaruh oleh noise yang berlebihan.
+  
 + One Hot Encoding
 
-  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. Hal ini memudahkan machine learning untuk memproses data karena berbentuk binary/integer dan tidak bersifat deskriptif yang sulit untuk diproses model machine learning
+  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. Hal ini memudahkan machine learning untuk memproses data karena berbentuk binary/integer dan tidak bersifat deskriptif yang sulit untuk diproses model machine learning. One Hot Encoding akan dilakukan pada semua data kategorikal yaitu Job_Title, Education, Location dan Gender dengan setiap atribut yang hanya memiliki maksimal 4 kelompok data. 
   
 + Train Test Split
 
-  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 1000 dibagi menjadi 899 untuk data latih dan 100 untuk data uji.
+  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 1000 dibagi menjadi 899 untuk data latih dan 100 untuk data uji. Pemilihan angka ini dilakukan untuk memberikan training data yang masih cukup banyak dan testing data yang cukup untuk melakukan pengujian model.
   
 + Normalization
 
