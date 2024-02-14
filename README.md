@@ -12,7 +12,13 @@ Penghidupan yang layak merupakan salah satu syarat untuk hidup yang makmur denga
 <br><br>
 Ukuran gaji seseorang biasanya bergantung pada beberapa faktor antara lain skillset, posisi dan experience yang dimiliki. Namun, sulit untuk ditentukan secara pasti gaji yang sesuai dengan kriteria tersebut secara manual. Hal ini berdampak pada tidak sesuainya gaji yang diterima oleh pekerja yang dapat merugikan perusahaan dan pegawai baik karena kurangnya motivasi dan retensi/loyalty pegawai untuk bekerja dalam perusahaan maupun dana yang terlalu banyak dikeluarkan untuk biaya sumber daya manusia. Oleh karena itu, diperlukanlah suatu sistem terstruktur untuk memprediksi kompensasi yang sesuai untuk seorang pekerja dengan atribut tertentu.
 <br><br>
-Penelitian ini dilakukan untuk menciptakan suatu model machine learning yang bertujuan untuk memprediksi gaji pegawai dengan data yang ada. Diharapkan model ini dapat memprediksi dengan sesuai dan memberikan acuan bagi perusahaan maupun pekerja untuk melakukan negosiasi gaji untuk meningkatkan retensi pegawai dan melakukan hiring sumber daya manusia dengan lebih efisien.
+Model prediksi gaji memiliki dampak penting dalam konteks ekonomi dan manajemen sumber daya manusia. Secara ekonomi, model ini dapat membantu perusahaan dalam pengambilan keputusan strategis terkait alokasi sumber daya, termasuk anggaran tenaga kerja dan struktur kompensasi. Dengan memiliki perkiraan yang akurat tentang gaji, perusahaan dapat mengoptimalkan pengeluaran mereka dan memastikan kompetitivitas di pasar tenaga kerja.
+<br><br>
+Dari segi manajemen sumber daya manusia, model prediksi gaji dapat membantu dalam proses rekrutmen, penempatan, dan retensi karyawan. Perusahaan dapat menggunakan model ini untuk menentukan penawaran gaji yang sesuai dengan nilai pasar dan profil karyawan yang diinginkan. Selain itu, model ini juga dapat membantu dalam identifikasi risiko turnover dan pengembangan strategi retensi karyawan.
+<br><br>
+Penelitian ini dilakukan untuk menciptakan suatu model machine learning yang bertujuan untuk memprediksi gaji pegawai dengan data yang ada. Diharapkan model ini dapat memprediksi dengan sesuai dan memberikan acuan bagi professional hiring perusahaan maupun pencari pekerjaan untuk melakukan negosiasi gaji untuk meningkatkan retensi pegawai dan melakukan hiring sumber daya manusia dengan lebih efisien. Model ini juga diharapkan dapat memajukan ekonomi bangsa  dengan cara memberikan guideline bagi perusahaan untuk memanajemen sumber daya manusia mereka dan memberikan motivasi bagi masyarakat untuk terus belajar dan menggapai skillset baru.
+<br><br>
+Hasil proyek ini diharapkan dapat diterapkan secara aplikatif melalui integrasi model prediksi gaji ke dalam sistem HR perusahaan. Hal ini akan memungkinkan pengguna, seperti manajer sumber daya manusia atau profesional hiring, untuk dengan mudah mengakses dan menggunakan perkiraan gaji saat membuat keputusan terkait kompensasi karyawan. Selain itu, hasil proyek ini juga dpaat diaplikasikan ke dalam web platform misal website seperti Glassdoor yang memungkinkan pencari kerja untuk memiliki base pay dalam benak mereka sebelum melakukan interview.
 
 # Business Understanding
 
@@ -20,12 +26,13 @@ Model ini dibuat untuk skenario sebagai berikut:<br>
 1. Pegawai yang ingin apply ke perusahaan tertentu untuk mendapatkan gaji yang lebih tinggi daripada posisi lamanya<br>
 2. Pegawai yang ingin meminta promosi atau kenaikan gaji.<br>
 3. Perusahaan yang ingin mempekerjakan seorang pegawai tertentu dan ingin menghemat biaya operasional atau ingin mendapatkan karyawan yang kompeten.<br>
+4. Evaluasi kesejahteraan karyawan oleh perusahaan untuk memastikan retensi karyawan yang tinggi. <br>
 
 ### Problem Statement
 
 1. Atribut apa yang paling berpengaruh terhadap gaji seorang pegawai?
-2. Bagaimana cara melakukan preprocessing data yang dapat dicerna lebih baik oleh model?
-3. Berapa gaji yang sesuai untuk seorang pekerja dengan karakteristik tertentu?
+2. Berapa gaji yang sesuai untuk seorang pekerja dengan karakteristik tertentu? 
+3. Bagaimana cara melakukan alokasi dana yang terstruktur untuk gaji pegawai secara mudah dan terotomatisir?
 
 ### Goals
 
@@ -66,6 +73,7 @@ Berikut informasi pada dataset :
 #### Visualisasi Data Kategorikal
 <div><img src='https://github.com/Nicholas438/Salary-Prediction/assets/69570302/7a11a22a-4271-4c13-8137-fdc343f95e17'></div>
 <div><img src = 'https://github.com/Nicholas438/Salary-Prediction/assets/69570302/076506fd-7fd1-4c56-a756-2f344bbe2f0f'/></div>
+Gambar 1. Visualisasi Data Kategorikal <br><br>
 
 Dapat terlihat bahwa Data Kategorikal memiliki sebaran data yang cukup merata. Setiap atribut pada kategori memiliki jumlah yang relatif seimbang tanpa memiliki perbedaan yang signifikan dan dapat diberi ke model machine learning secara langsung.
 
