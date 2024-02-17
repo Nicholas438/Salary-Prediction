@@ -6,7 +6,7 @@
 Proyek ini dilakukan sebagai penyelesaian tugas proyek pertama Dicoding - Applied Machine Learning. Proyek ini bertujuan untuk menciptakan sebuah model untuk memprediksi gaji dari pegawai dengan atribut tertentu.
 
 # Domain Proyek
-
+x
 **Latar Belakang**
 
 Penghidupan yang layak merupakan salah satu syarat untuk hidup yang makmur dengan tingginya persentase masyarakat Indonesia yang menganggap bahwa status finansial yang mumpuni merupakan hal yang kurang dalam hidup mereka. Namun, banyak orang yang merasa kesulitan untuk melakukan negosiasi gaji yang cocok dengan rekruiter yang sesuai dengan skillset, experience dan kontribusi mereka ke perusahaan.
